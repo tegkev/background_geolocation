@@ -14,7 +14,8 @@ add in your pubspec.yml
 
 ```
 background_geolocation:
- git: https://github.com/tegkev/background_geolocation.git
+    git:
+        url: https://github.com/tegkev/background_geolocation.git
 
 ```
 

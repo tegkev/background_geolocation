@@ -57,23 +57,10 @@ abstract class PositionProvider(
         var tmp = 1.5
         if(lastLocation!= null && location != null){
             location.let { tmp = it.distanceTo(lastLocation).toDouble() }
-            Log.i(TAG, "Pourquoi tmp ne marche pas "+tmp)
-            Log.i(TAG, "l'distance est de  "+tmp)
-            Log.i(TAG, "la confidtion est :  "+(location.time - lastLocation!!.time >= interval || distance > 0))
-            Log.i(TAG, "la confidtion est :  "+(tmp!! >= distance || angle > 0))
-            Log.i(TAG, "la confidtion est :  "+(abs(location.bearing - lastLocation!!.bearing) >= angle))
-
-
-
         }
         var condition =location !=null && (lastLocation==null || (location.time - lastLocation!!.time >= interval || distance > 0) && (tmp!! >= distance || angle > 0) && (abs(location.bearing - lastLocation!!.bearing) >= angle))
 
-        Log.i(TAG, "Total condition :"+condition)
-
-        if (
-            condition
-        ) {
-//
+        if (condition) {
             this.lastLocation = location
             listener.onPositionUpdate(Position(deviceId, location!!, getBatteryStatus(context)))
         } else {

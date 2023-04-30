@@ -36,6 +36,7 @@ class GooglePositionProvider(context: Context, listener: PositionListener) : Pos
         val locationRequest = LocationRequest()
         locationRequest.priority = getPriority(preferences.getString(BackgroundGeolocationPlugin.KEY_ACCURACY,"medium"))
         locationRequest.interval = if (distance > 0 || angle > 0) MINIMUM_INTERVAL else interval
+        locationRequest.smallestDisplacement = distance.toFloat()
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
     }
 

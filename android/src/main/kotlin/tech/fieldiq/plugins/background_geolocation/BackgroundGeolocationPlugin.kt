@@ -64,6 +64,7 @@ class BackgroundGeolocationPlugin: FlutterPlugin, MethodCallHandler, ActivityAwa
     channel.lightColor = Color.GREEN
     channel.lockscreenVisibility = Notification.VISIBILITY_SECRET
     (context.getSystemService(MultiDexApplication.NOTIFICATION_SERVICE) as NotificationManager).createNotificationChannel(channel)
+
   }
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
